@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PharmFind</title>
+
+  <!-- CSS CONNECTION -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="phone">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <h2>PharmFind</h2>
+      <p>Pharmacy Inventory App</p>
+    </div>
+
+    <div class="container">
+
+      <!-- SPLASH SCREEN -->
+      <section id="splash" class="screen active">
+
+        <div class="center">
+
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4320/4320337.png"
+            class="logo">
+
+          <h1>PharmFind</h1>
+
+          <p>Inventory Made Easy</p>
+
+        </div>
+
+        <button onclick="showScreen('login')">
+          Get Started
+        </button>
+
+      </section>
+
+      <!-- LOGIN -->
+      <section id="login" class="screen">
+
+        <h2>Welcome Back</h2>
+
+        <input
+          type="text"
+          id="loginUser"
+          placeholder="Username">
+
+        <input
+          type="password"
+          id="loginPass"
+          placeholder="Password">
+
+        <button onclick="login()">
+          Login
+        </button>
+
+        <p class="link"
+           onclick="showScreen('register')">
+          Create Account
+        </p>
+
+      </section>
+
+      <!-- REGISTER -->
+      <section id="register" class="screen">
+
+        <h2>Create Account</h2>
+
+        <input
+          type="text"
+          placeholder="Full Name">
+
+        <input
+          type="email"
+          placeholder="Email">
+
+        <input
+          type="password"
+          placeholder="Password">
+
+        <button onclick="register()">
+          Register
+        </button>
+
+        <p class="link"
+           onclick="showScreen('login')">
+          Already have account?
+        </p>
+
+      </section>
+
+      <!-- DASHBOARD -->
+      <section id="dashboard" class="screen">
+
+        <h2>Dashboard</h2>
+
+        <div class="cards">
+
+          <div class="card green">
+            <h3 id="availableCount">24</h3>
+            <p>Available</p>
+          </div>
+
+          <div class="card yellow">
+            <h3 id="lowCount">5</h3>
+            <p>Low Stock</p>
+          </div>
+
+          <div class="card red">
+            <h3 id="outCount">2</h3>
+            <p>Out Stock</p>
+          </div>
+
+        </div>
+
+        <button onclick="showScreen('inventory')">
+          Go To Inventory
+        </button>
+
+      </section>
+
+      <!-- INVENTORY -->
+      <section id="inventory" class="screen">
+
+        <h2>Medicine Inventory</h2>
+
+        <input
+          type="text"
+          id="medicineName"
+          placeholder="Medicine Name">
+
+        <input
+          type="number"
+          id="medicineQty"
+          placeholder="Quantity">
+
+        <select id="medicineStatus">
+
+          <option value="available">
+            Available
+          </option>
+
+          <option value="low">
+            Low Stock
+          </option>
+
+          <option value="out">
+            Out Of Stock
+          </option>
+
+        </select>
+
+        <button onclick="addMedicine()">
+          Add Medicine
+        </button>
+
+        <div id="medicineList">
+
+          <div class="medicine-card">
+
+            <h3>Paracetamol</h3>
+
+            <p>Quantity: 24</p>
+
+            <span class="status available">
+              Available
+            </span>
+
+          </div>
+
+          <div class="medicine-card">
+
+            <h3>Amoxicillin</h3>
+
+            <p>Quantity: 5</p>
+
+            <span class="status low">
+              Low Stock
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- SEARCH -->
+      <section id="search" class="screen">
+
+        <h2>Search Medicine</h2>
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search medicine..."
+          onkeyup="searchMedicine()">
+
+        <div id="searchResults"></div>
+
+      </section>
+
+      <!-- PROFILE -->
+      <section id="profile" class="screen">
+
+        <h2>Profile</h2>
+
+        <div class="profile-box">
+
+          <p>
+            <strong>Name:</strong>
+            Admin User
+          </p>
+
+          <p>
+            <strong>Email:</strong>
+            admin@gmail.com
+          </p>
+
+          <p>
+            <strong>Role:</strong>
+            Pharmacist
+          </p>
+
+        </div>
+
+        <button
+          class="logout"
+          onclick="logout()">
+
+          Logout
+
+        </button>
+
+      </section>
+
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="navbar">
+
+      <button onclick="showScreen('dashboard')">
+        Home
+      </button>
+
+      <button onclick="showScreen('inventory')">
+        Inventory
+      </button>
+
+      <button onclick="showScreen('search')">
+        Search
+      </button>
+
+      <button onclick="showScreen('profile')">
+        Profile
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- JAVASCRIPT CONNECTION -->
+  <script src="script.js"></script>
+
+</body>
+</html>
